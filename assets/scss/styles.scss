@@ -339,16 +339,21 @@ img{
 
 .certifications__container {
     display: flex;
+    flex-direction: row; /* Ensures horizontal layout */
     overflow-x: auto;
+    overflow-y: hidden; /* Prevents vertical scroll */
     gap: 1rem;
     padding: 1rem 0;
     scroll-behavior: smooth;
+    white-space: nowrap; /* Helps with inline block scrolling if needed */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
 }
 
 .certification__item {
-    flex: 0 0 auto;
+    flex: 0 0 auto; /* Prevent shrinking, maintain fixed width */
     width: 200px;
     text-align: center;
+    scroll-snap-align: start; /* Optional: for scroll snapping */
 }
 
 .certification__item img {
