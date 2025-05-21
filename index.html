@@ -260,19 +260,19 @@ document.addEventListener("DOMContentLoaded", function () {
   const scrollContainer = document.querySelector(".auto-scroll");
   if (!scrollContainer) return;
 
-  const scrollSpeed = 1; // Adjust speed: pixels per frame
+  const scrollSpeed = 1; // pixels per frame
   let scrollPos = 0;
 
   function autoScroll() {
     scrollPos += scrollSpeed;
     if (scrollPos >= scrollContainer.scrollWidth / 2) {
-      scrollPos = 0; // Reset for seamless scroll loop
+      scrollPos = 0; // Reset to start for seamless loop
     }
     scrollContainer.scrollLeft = scrollPos;
     requestAnimationFrame(autoScroll);
   }
 
   autoScroll();
-});
+});</script>
     </body>
 </html>
