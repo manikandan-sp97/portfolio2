@@ -368,6 +368,19 @@ img{
     font-size: 0.9rem;
 }
 
+.auto-scroll {
+  animation: scroll-left 30s linear infinite;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 /* ===== CONTACT =====*/
 .contact{
     &__input{
