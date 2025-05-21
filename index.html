@@ -257,18 +257,21 @@
         <!--===== MAIN JS =====-->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  const scrollContainer = document.querySelector(".auto-scroll");
-  if (!scrollContainer) return;
+  const container = document.querySelector(".auto-scroll");
+  if (!container) return;
 
-  const scrollSpeed = 5; // pixels per frame
+  // Duplicate the content to make seamless loop
+  container.innerHTML += container.innerHTML;
+
+  const scrollSpeed = 5; // adjust speed
   let scrollPos = 0;
 
   function autoScroll() {
     scrollPos += scrollSpeed;
-    if (scrollPos >= scrollContainer.scrollWidth / 2) {
-      scrollPos = 0; // Reset to start for seamless loop
+    if (scrollPos >= container.scrollWidth / 2) {
+      scrollPos = 0;
     }
-    scrollContainer.scrollLeft = scrollPos;
+    container.scrollLeft = scrollPos;
     requestAnimationFrame(autoScroll);
   }
 
