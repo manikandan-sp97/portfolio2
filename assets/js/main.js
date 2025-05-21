@@ -58,29 +58,32 @@ sr.reveal('.skills__data, .work__img, .contact__input',{interval: 200});
 
 /*===== CERTIFICATION AUTO-SCROLL =====*/
 document.addEventListener("DOMContentLoaded", function () {
-    const container = document.querySelector(".certifications__container");
-    if (!container) return;
+  const container = document.querySelector(".certifications__container");
+  if (!container) return;
 
-    // Duplicate items to create infinite loop effect
-    container.innerHTML += container.innerHTML;
+  // Duplicate the content for seamless looping
+  container.innerHTML += container.innerHTML;
 
-    // Set up scroll position and speed
-    let scrollPos = 0;
-    const scrollSpeed = 5; // You can adjust this speed if needed
+  let scrollSpeed = 1;
+  let isPaused = false;
 
-    function smoothScroll() {
-        scrollPos += scrollSpeed;
+  // Pause on hover
+  container.addEventListener('mouseenter', () => isPaused = true);
+  container.addEventListener('mouseleave', () => isPaused = false);
 
-        if (scrollPos >= container.scrollWidth / 2) {
-            scrollPos = 0;
-        }
+  // Scroll loop
+  function autoScroll() {
+    if (!isPaused) {
+      container.scrollLeft += scrollSpeed;
 
-        container.scrollLeft = scrollPos;
-        requestAnimationFrame(smoothScroll);
+      // Reset scroll when halfway through duplicated content
+      if (container.scrollLeft >= container.scrollWidth / 2) {
+        container.scrollLeft = 0;
+      }
     }
 
-    // Apply scrolling only if there are enough items
-    if (container.scrollWidth > container.clientWidth) {
-        smoothScroll();
-    }
+    requestAnimationFrame(autoScroll);
+  }
+
+  autoScroll();
 });
