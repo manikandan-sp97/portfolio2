@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Duplicate the content for seamless looping
   container.innerHTML += container.innerHTML;
 
-  let scrollSpeed = 5;
+  let scrollSpeed = 3;
   let isPaused = false;
 
   // Pause on hover
