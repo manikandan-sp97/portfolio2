@@ -230,28 +230,27 @@
         <script src="https://unpkg.com/scrollreveal"></script>
 
         <!--===== MAIN JS =====-->
-        <script src="assets/js/main.js">document.addEventListener("DOMContentLoaded", function () {
+<script>
+document.addEventListener("DOMContentLoaded", function () {
   const scrollContainer = document.querySelector(".auto-scroll");
 
-  if (scrollContainer) {
-    let scrollSpeed = 1; // Adjust scroll speed
-    let scrollAmount = 0;
+  if (!scrollContainer) return;
 
-    function autoScroll() {
-      scrollContainer.scrollLeft += scrollSpeed;
-      scrollAmount += scrollSpeed;
+  const scrollSpeed = 1; // Adjust scroll speed (pixels per frame)
+  let scrollPos = 0;
 
-      // Loop back to start when reaching the end
-      if (scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth) {
-        scrollContainer.scrollLeft = 0;
-        scrollAmount = 0;
-      }
-
-      requestAnimationFrame(autoScroll);
+  function autoScroll() {
+    scrollPos += scrollSpeed;
+    if (scrollPos >= scrollContainer.scrollWidth / 2) {
+      // Reset scroll to start for seamless loop
+      scrollPos = 0;
     }
-
-    autoScroll();
+    scrollContainer.scrollLeft = scrollPos;
+    requestAnimationFrame(autoScroll);
   }
-});</script>
+
+  autoScroll();
+});
+</script>
     </body>
 </html>
