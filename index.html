@@ -260,22 +260,27 @@ document.addEventListener("DOMContentLoaded", function () {
   const container = document.querySelector(".auto-scroll");
   if (!container) return;
 
-  // Duplicate the content to make seamless loop
-  container.innerHTML += container.innerHTML;
+  // Duplicate the content to make the scroll seamless
+  const items = container.innerHTML;
+  container.innerHTML += items;
 
-  const scrollSpeed = 5; // adjust speed
+  // Set initial scroll position and scroll speed
   let scrollPos = 0;
+  const scrollSpeed = 10; // smaller value = slower, increase for faster scroll
 
-  function autoScroll() {
+  function smoothScroll() {
     scrollPos += scrollSpeed;
+
+    // Once we scroll half the scrollWidth (the duplicated content), reset to 0
     if (scrollPos >= container.scrollWidth / 2) {
       scrollPos = 0;
     }
+
     container.scrollLeft = scrollPos;
-    requestAnimationFrame(autoScroll);
+    requestAnimationFrame(smoothScroll);
   }
 
-  autoScroll();
+  smoothScroll();
 });</script>
     </body>
 </html>
