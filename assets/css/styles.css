@@ -244,6 +244,18 @@ img {
   white-space: nowrap;
 }
 
+/* ===== Certificate =====*/
+.certifications__container {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto; /* important: must be scrollable */
+  gap: 1rem;
+  padding: 1rem 0;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+  width: 100%; /* Ensure it's constrained */
+}
+
 .certification__item {
   flex: 0 0 auto;
   width: 200px;
@@ -255,11 +267,6 @@ img {
   height: auto;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.certification__item p {
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
 }
 
 /* ===== ABOUT =====*/
