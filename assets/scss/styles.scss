@@ -340,44 +340,30 @@ img{
 .certifications__container {
   display: flex;
   flex-direction: row;
-  overflow-x: hidden; // Hide manual scrollbar
-  overflow-y: hidden;
+  overflow-x: hidden; // hide scrollbar
   gap: 1rem;
   padding: 1rem 0;
-  white-space: nowrap;
   scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  animation: scroll-left 30s linear infinite; // Add automatic scroll
-}
-
-@keyframes scroll-left {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  white-space: nowrap;
 }
 
 .certification__item {
   flex: 0 0 auto;
   width: 200px;
   text-align: center;
-  scroll-snap-align: start;
-}
 
-.certification__item img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
 
-.certification__item p {
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
+  p {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+  }
 }
-
 /* ===== CONTACT =====*/
 .contact{
     &__input{
