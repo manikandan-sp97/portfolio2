@@ -163,7 +163,7 @@
 <section class="certifications section" id="certifications">
     <h2 class="section-title">Certifications</h2>
 
-    <div class="certifications__container">
+    <div class="certifications__container auto-scroll">
         <div class="certification__item">
             <img src="assets/img/path-to-your-image1.jpg" alt="API Documentation Certification">
             <p>API Documentation Certification</p>
@@ -230,6 +230,28 @@
         <script src="https://unpkg.com/scrollreveal"></script>
 
         <!--===== MAIN JS =====-->
-        <script src="assets/js/main.js"></script>
+        <script src="assets/js/main.js">document.addEventListener("DOMContentLoaded", function () {
+  const scrollContainer = document.querySelector(".auto-scroll");
+
+  if (scrollContainer) {
+    let scrollSpeed = 1; // Adjust scroll speed
+    let scrollAmount = 0;
+
+    function autoScroll() {
+      scrollContainer.scrollLeft += scrollSpeed;
+      scrollAmount += scrollSpeed;
+
+      // Loop back to start when reaching the end
+      if (scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth) {
+        scrollContainer.scrollLeft = 0;
+        scrollAmount = 0;
+      }
+
+      requestAnimationFrame(autoScroll);
+    }
+
+    autoScroll();
+  }
+});</script>
     </body>
 </html>
