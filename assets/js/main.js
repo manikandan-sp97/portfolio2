@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Set up scroll position and speed
     let scrollPos = 0;
-    const scrollSpeed = 1; // You can adjust this speed if needed
+    const scrollSpeed = 5; // You can adjust this speed if needed
 
     function smoothScroll() {
         scrollPos += scrollSpeed;
